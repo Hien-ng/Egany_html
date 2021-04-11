@@ -1,0 +1,261 @@
+
+.section1 
+    margin-top: rem(82px + 24px)
+    &__main 
+        border: 1px solid #C4C4C4 
+        border-radius: 24px
+        overflow: hidden
+    &__pagination
+        padding: rem(15px) 0
+        text-align: center
+        .swiper-pagination-bullet
+            margin: 0 rem(4px)
+            width: rem(12px)
+            height: rem(12px)
+            background: #fff
+            opacity: 1
+        .swiper-pagination-bullet-active 
+            background: #FFC800
+.section2, .section3, .section4, .section5, .section6 
+    margin-top: rem(32px)
+    &__title
+        h2
+            font-weight: 700
+            font-size: rem(24px)
+            // line-height: 36px
+    &__description
+        p 
+            font-size: rem(16px)
+            font-weight: 400
+            span 
+                display: inline-block
+                padding-bottom: rem(10px)
+.section2 
+    &__img 
+        margin-top: rem(64px)
+        background-image: url('../img/bg.svg')
+        background-size: cover
+        background-position: center
+        background-repeat: no-repeat
+        min-height: 495px 
+.section3
+    &__img
+        margin-bottom: rem(32px)
+        text-align: center
+    &__boxInformation
+        position: relative
+        margin-top: rem(32px)
+        background: #fff
+        padding: rem(28px) rem(16px)
+        border-radius: 16px
+        &::before
+            content: ''
+            position: absolute
+            top: -35px
+            left: 15px
+            width: 27px
+            height: 127px
+            background: #FCD4D4
+            transform: rotate(45deg)
+        h3
+            font-size: rem(16px)
+            font-weight: 500
+        ul
+            li 
+                display: flex
+                margin: rem(16px) 0
+                align-items: flex-end
+                p 
+                    padding-left: rem(14px)
+                    font-size: rem(16px)
+                    font-weight: 400
+        button
+            @include button
+.section4
+    &__products
+        &--row
+            display: flex
+            width: 100%
+            overflow-x: auto
+            margin: 0 -4px
+            margin-top: rem(32px)
+            &::-webkit-scrollbar 
+                display: none
+        &--col 
+            padding: 0 4px
+            flex: 0 0 45%
+            figure 
+                border-radius: 10px
+                padding: rem(4px)
+                background: #fff
+                figcaption
+                    padding: rem(6px)
+                h3 
+                    margin: 12px 0
+                    font-size: rem(16px)
+                    font-weight: 700
+                    line-height: 24px
+                h5 
+                    margin: 12px 0
+                    font-size: rem(16px)
+                    font-weight: 700
+                    line-height: 24px
+                    color: #009EFE
+                button 
+                    display: none
+        &--box
+            border-radius: 10px
+            overflow: hidden
+    &__color
+        span
+            display: inline-block
+            width: 16px
+            height: 16px
+            border-radius: 50px
+            margin-right: 8px
+            box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.15)
+        &--pink 
+            background: #EF9CD6
+        &--blue 
+            background: #85CEF2
+        &--yellow 
+            background: #F4EA88
+        &--white 
+            background: #FFFFFF
+.section5
+    &__img 
+        max-width: 307px
+    &__main
+        position: relative
+        height: 100%
+    .swiper-container
+        width: 100%
+        height: 100%
+.section6 
+    text-align: center
+    &__description
+        max-width: 312px
+        margin: auto
+        a 
+            display: inline-block
+            margin-top: 10px
+            color: #009efe
+            font-size: rem(14px)
+            font-weight: 700
+            span 
+                padding-left: 5px
+                text-decoration: underline
+    .swiper-slide
+         min-width: 156px
+    &__main
+        padding: rem(48px) 0
+    &__image
+        padding: 4px
+        background: #fff
+        border-radius: 10px
+        img 
+            border-radius: 10px
+@media( min-width: 992px )
+    .section1 
+        &__pagination
+            padding: rem(35px) 0
+    .section2 
+        &__img 
+            height: 735px
+            background-size: contain
+    .section3, .section4, .section6
+        &__title
+            h2
+                font-size: rem(48px)
+    .section3 
+        margin-top: rem(47px)
+        &__img
+            height: 100%
+            margin-bottom: 0
+            @include flex-center
+        &__reverse 
+            flex-direction: row-reverse
+        &__boxInformation
+            padding: rem(32px) rem(40px)
+            button
+                width: auto
+                padding: 8px 29px
+    .section4
+        &__products
+            &--row
+                margin: 0 -15px
+                margin-top: rem(32px)
+                overflow: initial
+            &--col 
+                padding: 0 15px
+                flex: 0 0 25%
+                figure
+                    position: relative
+                    padding: 24px
+                    &::before
+                        content: ''
+                        border-radius: 10px
+                        position: absolute
+                        background-image: url('../img/bg3.svg')
+                        top: 0
+                        right: 0
+                        width: 100%
+                        height: 100%
+                        z-index: -1
+                        transition: .5s all ease-in-out
+                    .animation
+                        position: absolute
+                        bottom: -40px
+                        visibility: hidden
+                        opacity: 0
+                        left: 0
+                        width: 100%
+                        text-align: center
+                        background: #fff
+                        padding: 10px 0
+                        border-radius: 10px
+                        transition: .5s all
+                        button 
+                            display: inline-block
+                            @include button
+                            width: calc(100% - 48px)
+                            z-index: 10
+                &:hover
+                    figure
+                        &::before
+                            top: -12px
+                            right: -12px
+                        .animation
+                            visibility: initial
+                            opacity: 1
+                            bottom: -30px
+    .section5
+        &__img 
+            max-width: 500px
+@media( min-width: 1140px )
+    .section2 
+        position: relative
+        &__main
+            position: absolute
+            width: 100%
+            top: 0
+            left: 50%
+            transform: translate(-50%)
+        &__img 
+            height: 735px
+            background-size: contain
+        &__title 
+            max-width: rem(530px)
+            position: absolute
+            top: 0 
+            left: 0
+            h2 
+                font-size: rem(48px)
+        &__description
+            max-width: rem(390px)
+            position: absolute
+            top: 0 
+            right: 0
+    .section5
+        &__img 
+            max-width: 600px

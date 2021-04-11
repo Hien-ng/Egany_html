@@ -1,0 +1,17 @@
+{
+    "font": [
+        "src/fonts/**"
+    ],
+    "js": [
+        "src/plugins/mapping.js",
+        "src/plugins/mapping-listener.js",
+        "node_modules/jquery/dist/jquery.min.js",
+        "node_modules/swiper/swiper-bundle.min.js"
+    ],
+    "css": [
+        "src/plugins/addon.css",
+        "src/plugins/font.css",
+        "src/plugins/grid.css",
+        "node_modules/swiper/swiper-bundle.min.css"
+    ]
+}

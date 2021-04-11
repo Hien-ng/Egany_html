@@ -1,0 +1,96 @@
+.header
+    background:#fff
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 100
+    &__main 
+        @include flex-between
+        padding: rem(13px) 0
+    &__left
+        position: absolute
+        top: calc(100% + 15px)
+        left: 0
+        width: 100%
+        height: 100%
+        visibility: hidden
+        opacity: 0
+        transition: .5s all ease-in-out
+    .show__menu
+        visibility: initial
+        opacity: 1
+        top: 100%
+    &__menu
+        background: #fff
+        text-align: center
+        border-top: 1px solid #e5e5e5
+        ul 
+            display: inline-block
+            li 
+                font-size: rem(16px)
+                font-weight: 700
+                margin: rem(10px) 0
+                a
+                    position: relative
+                    z-index: 0
+                    color: #000
+                &:hover, &.active
+                    a
+                        &::after
+                            content: ''
+                            position: absolute
+                            width: 100%
+                            height: rem(8px)
+                            left: 0
+                            bottom: 0
+                            background: #FFC800
+                            border-radius: 12px
+                            z-index: -1
+    &__right 
+        @include flex-center
+    &__cart
+        position: relative
+        width: rem(40px)
+        height: rem(40px)
+        background: #FFC800
+        border-radius: 50px
+        margin-right: rem(34px)
+        @include flex-center
+        .ellipse
+            position: absolute
+            top: -5px
+            right: -5px
+            color: #fff
+            font-size: rem(10px)
+            border-radius: 50px
+            width: rem(20px)
+            height: rem(20px)
+            background: #009EFE
+            border: 1px solid #fff
+            @include flex-center
+        a 
+            line-height: 100%
+@media( min-width: 992px )
+    .header 
+        background: var(--color)
+        transition: .3s all
+        border-bottom: 1px solid #e5e5e5
+        &__left
+            visibility: initial
+            opacity: 1
+            position: relative
+        &__menu
+            background: none
+            border-top: none
+            ul 
+                display: flex
+                justify-content: flex-start
+                align-items: center
+                li 
+                    margin-left: rem(40px)
+        &__cart
+            margin-right: 0
+        &__bar
+            display: none
+    

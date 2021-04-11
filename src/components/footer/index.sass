@@ -1,0 +1,42 @@
+.footer
+    background: #fff
+    padding: rem(33px) 0
+    &__list 
+        ul 
+            @include flex-wrap
+            li 
+                flex: 0 0 50%
+                margin-bottom: rem(24px)
+                a 
+                    font-size: rem(14px) 
+                    font-weight: 400
+    &__info 
+        @include flex-wrap
+        &--text, &--icon
+            flex: 0 0 50%
+        em 
+            font-size: rem(12px)
+            font-weight: 400
+        img 
+            margin-right: rem(22px)
+@media( min-width: 992px )
+    .footer 
+        &__main 
+            @include flex-between
+        &__list 
+            ul 
+                display: inline-flex
+                li 
+                    flex: 0 0 auto
+                    margin-bottom: 0
+                    margin-right: rem(40px)
+                    a 
+                        white-space: nowrap
+        &__info 
+            @include flex-center
+            flex-wrap: nowrap
+            &--icon
+                white-space: nowrap
+            img 
+                margin-right: 0
+                margin-left: rem(22px)
