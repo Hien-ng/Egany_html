@@ -35,16 +35,16 @@ export const favicon = () => {
 export const fonts = () => {
     let url = JSON.parse(readFileSync("config.json"))
     return src(url.font, {
-            allowEmpty: true
-        })
+        allowEmpty: true
+    })
         .pipe(dest("dist/fonts"))
 }
 
 export const cssCore = () => {
     let url = JSON.parse(readFileSync("config.json"))
     return src(url.css, {
-            allowEmpty: true
-        })
+        allowEmpty: true
+    })
         .pipe(plumber())
         .pipe(concat("core.min.css"))
         .pipe(postcss([
@@ -63,8 +63,8 @@ export const cssCore = () => {
 export const jsCore = () => {
     let url = JSON.parse(readFileSync("config.json"))
     return src(url.js, {
-            allowEmpty: true
-        })
+        allowEmpty: true
+    })
         .pipe(plumber())
         .pipe(concat("core.min.js"))
         .pipe(uglify())
@@ -92,9 +92,9 @@ export const styles = () => {
 
 export const templates = () => {
     return src([
-            "src/pages/*.pug",
-            "!src/pages/\_*.pug"
-        ])
+        "src/pages/*.pug",
+        "!src/pages/\_*.pug"
+    ])
         .pipe(plumber())
         .pipe(pug({
             pretty: "\t",
@@ -163,4 +163,19 @@ exports.default = series(
     templates,
     scripts,
     server
+)
+exports.build = series(
+    cleanDist,
+    parallel(
+        images,
+        fonts,
+        favicon
+    ),
+    parallel(
+        cssCore,
+        jsCore
+    ),
+    styles,
+    templates,
+    scripts,
 )
